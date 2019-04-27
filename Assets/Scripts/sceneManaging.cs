@@ -15,8 +15,15 @@ public class sceneManaging : MonoBehaviour {
         SceneManager.LoadScene(nextLevel);
         gameManaging.gameInstance.savedScore++;
     }
-    public void goToMain(){
+    public void goToLevelOne() {
+        SceneManager.LoadScene("Test_Scene1");
+        gameManaging.gameInstance.savedScore++;
+    }
+    public void goToMain() {
         SceneManager.LoadScene("Main Menu");
         gameManaging.gameInstance.savedScore = 0;
+    }
+    public void quitGame() {
+        Application.Quit();
     }
 }
