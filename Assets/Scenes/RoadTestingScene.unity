@@ -455,7 +455,7 @@ MonoBehaviour:
   selectedRoadRightInnerOffset: 0
   selectedCrossingMaterial: 0
   crossingTextureInfoIndex: 0
-  handleSelection: 0
+  handleSelection: -1
   positionHandleSelection: 0
   markerDirXZ: 0
   defaultCrossing: {fileID: 0}
@@ -712,6 +712,7 @@ Transform:
   m_Children:
   - {fileID: 1606501463}
   - {fileID: 864557260}
+  - {fileID: 1211908863}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3680,6 +3681,64 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1211908862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211908863}
+  - component: {fileID: 1211908865}
+  - component: {fileID: 1211908864}
+  m_Layer: 0
+  m_Name: Road Boarders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211908863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211908862}
+  m_LocalRotation: {x: 0, y: 0.021553177, z: 0, w: 0.9997677}
+  m_LocalPosition: {x: 201.931, y: 0, z: 1.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 34353126}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 2.47, z: 0}
+--- !u!65 &1211908864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211908862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 88.50059}
+  m_Center: {x: 10.250074, y: 0, z: 43.75034}
+--- !u!65 &1211908865
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211908862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6408538, y: 1, z: 86.51619}
+  m_Center: {x: -0.17955926, y: 0, z: 42.75746}
 --- !u!43 &1467962827
 Mesh:
   m_ObjectHideFlags: 0
