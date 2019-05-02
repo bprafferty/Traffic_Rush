@@ -16,7 +16,7 @@ public class carMovement : MonoBehaviour
     public WheelCollider W_BR;
 
     public float Torque = 1000f;
-    public float loweststeerSpeed = 20f;
+    public float loweststeerSpeed = 50f;
     public float loweststeerAngle = 70f;
     public float highestSteerAngle = 40f;
 
@@ -58,8 +58,8 @@ public class carMovement : MonoBehaviour
 
     void rotateWheels()
     {
-        wheel_BL.gameObject.transform.Rotate(W_BL.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-        wheel_BR.gameObject.transform.Rotate(W_BR.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        wheel_BL.gameObject.transform.Rotate(W_BL.rpm / 600 * 360 * Time.deltaTime, 0, 0);
+        wheel_BR.gameObject.transform.Rotate(W_BR.rpm / 600 * 360 * Time.deltaTime, 0, 0);
     }
 
     void steerWheels()

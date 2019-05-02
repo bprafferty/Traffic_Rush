@@ -11,7 +11,7 @@ public class carScript : MonoBehaviour
     public float heightDamping;
     public float zoomRatio;
     public float defaultFOV;
-    public float rotation_vector;
+    private float rotation_vector;
     void FixedUpdate()
     {
         Vector3 local_velocity = car.InverseTransformDirection(car.GetComponent<Rigidbody>().velocity);
