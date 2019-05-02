@@ -20,12 +20,14 @@ public class carMovement : MonoBehaviour
     public float loweststeerAngle = 70f;
     public float highestSteerAngle = 40f;
 
-
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Vector3 temp = rb.centerOfMass;
+        temp.y = -.15f;
+        rb.centerOfMass = temp;
     }
 
     // Update is called once per frame
