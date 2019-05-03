@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class carScript : MonoBehaviour
-{
+{ //old
     public Transform car;
     public float distance;
     public float height;

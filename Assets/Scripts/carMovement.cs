@@ -2,78 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class carMovement : MonoBehaviour
+public class carMovement:MonoBehaviour
 {
 
-    public GameObject wheel_FR;
-    public GameObject wheel_FL;
-    public GameObject wheel_BR;
-    public GameObject wheel_BL;
+    private float m_horizontalInput;
+    private float m_verticalInput;
+    private float m_steeringAngle;
 
-    public WheelCollider W_FL;
-    public WheelCollider W_FR;
-    public WheelCollider W_BL;
-    public WheelCollider W_BR;
-
-    public float Torque = 1000f;
-    public float loweststeerSpeed = 50f;
-    public float loweststeerAngle = 70f;
-    public float highestSteerAngle = 40f;
-
-    Rigidbody rb;
-
-    // Start is called before the first frame update
-    void Start()
+    public WheelCollider frontDriverW, frontPassengerW;
+    public WheelCollider rearDriverW, rearPassengerW;
+    public Transform frontDriverT, frontPassengerT;
+    public Transform rearDriverT, rearPassengerT;
+    public float maxSteerAngle = 30;
+    public float motorForce = 50;
+    //new
+    public void GetInput()
     {
-        Vector3 temp = rb.centerOfMass;
-        temp.y = -.15f;
-        rb.centerOfMass = temp;
+        m_horizontalInput = Input.GetAxis("Horizontal");
+        m_verticalInput = Input.GetAxis("Vertical");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Steer()
     {
-
-    }
-    void FixedUpdate()
-    {
-        CarMovement();
-        rotateWheels();
-        steerWheels();
+        m_steeringAngle = maxSteerAngle * m_horizontalInput;
+        frontDriverW.steerAngle = m_steeringAngle;
+        frontPassengerW.steerAngle = m_steeringAngle;
     }
 
-
-    void CarMovement()
+    private void Accelerate()
     {
-        W_BL.motorTorque = Torque * Input.GetAxis("Vertical");
-        W_BL.motorTorque = Torque * Input.GetAxis("Vertical");
-
-        float speedfactor = this.GetComponent<Rigidbody>().velocity.magnitude / loweststeerSpeed;
-        float currentAngle = Mathf.Lerp(loweststeerAngle, highestSteerAngle, speedfactor);
-
-        currentAngle *= Input.GetAxis("Horizontal");
-
-        W_FL.steerAngle = currentAngle;
-        W_FR.steerAngle = currentAngle;
-
+        frontDriverW.motorTorque = m_verticalInput * motorForce;
+        frontPassengerW.motorTorque = m_verticalInput * motorForce;
     }
 
-    void rotateWheels()
+    private void UpdateWheelPoses()
     {
-        wheel_BL.gameObject.transform.Rotate(W_BL.rpm / 600 * 360 * Time.deltaTime, 0, 0);
-        wheel_BR.gameObject.transform.Rotate(W_BR.rpm / 600 * 360 * Time.deltaTime, 0, 0);
+        UpdateWheelPose(frontDriverW, frontDriverT);
+        UpdateWheelPose(frontPassengerW, frontPassengerT);
+        UpdateWheelPose(rearDriverW, rearDriverT);
+        UpdateWheelPose(rearPassengerW, rearPassengerT);
     }
 
-    void steerWheels()
+    private void UpdateWheelPose(WheelCollider _collider, Transform _transform)
     {
-        Vector3 tmp;
-        tmp = wheel_FR.transform.localEulerAngles;
-        tmp.y = W_FR.steerAngle;
-        wheel_FR.transform.localEulerAngles = tmp;
+        Vector3 _pos = _transform.position;
+        Quaternion _quat = _transform.rotation;
 
+        _collider.GetWorldPose(out _pos, out _quat);
 
-        tmp = wheel_FL.transform.localEulerAngles;
-        tmp.y = W_FL.steerAngle;
-        wheel_FL.transform.localEulerAngles = tmp;
+        _transform.position = _pos;
+        _transform.rotation = _quat;
     }
+
+    private void FixedUpdate()
+    {
+        GetInput();
+        Steer();
+        Accelerate();
+        UpdateWheelPoses();
+    }
+
+
 }
