@@ -10,6 +10,7 @@ public class automaticMovement : MonoBehaviour
      public Transform frontDriverT, frontPassengerT;
     public Transform rearDriverT, rearPassengerT;
     public float motorForce = 10;
+    public Transform goalZonePrefab;
 
     
 
@@ -56,6 +57,11 @@ public class automaticMovement : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        Transform goalZone = Instantiate(goalZonePrefab) as Transform;
+        Physics.IgnoreCollision(goalZone.GetComponent<Collider>(), GetComponent<Collider>());
+    }
 
     private void Update()
     {
