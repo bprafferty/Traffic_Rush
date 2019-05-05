@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class sceneManaging : MonoBehaviour {
     public Text scoreText;
     public int currentScore = 0;
+    public static sceneManaging levelFinished;
 
 
     public GameObject pauseMenu;
