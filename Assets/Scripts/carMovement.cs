@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class carMovement:MonoBehaviour
 {
@@ -118,6 +119,10 @@ public class carMovement:MonoBehaviour
         if (transform.position.z > 185)
         {
             Debug.Log("End Zone");
+            sceneManaging foo = new sceneManaging();
+            foo.goToNextScene();
+
+            
         }
     }
 

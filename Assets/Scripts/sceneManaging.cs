@@ -50,6 +50,7 @@ public class sceneManaging : MonoBehaviour {
 
 
     public void goToNextScene() {
+        Debug.Log("Next Scene");
         gameManaging.gameInstance.savedScore = 0;
         int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextLevel);
