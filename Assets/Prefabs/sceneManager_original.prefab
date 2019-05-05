@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 8395028645990533854}
   - component: {fileID: 8395028645990533853}
   m_Layer: 0
-  m_Name: sceneManager
+  m_Name: sceneManager_original
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  currentScore: 0
   pauseMenu: {fileID: 8395028646639510985}
 --- !u!1 &8395028646185772601
 GameObject:
