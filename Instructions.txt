@@ -1,0 +1,13 @@
+Instructions:
+The goal of the game is to maneuver the car through the traffic and obstacles without touching anything.
+There is two levels. The second is harder than the last. To win you must reach the end of both levels.
+
+How to move:
+- Up arrow key to accelerate car
+- Left and right arrow keys to turn car
+
+
+
+Note:
+- Crashing into other cars or obstacles will cause damage.
+- You have 100 health to begin.
