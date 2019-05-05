@@ -12,7 +12,6 @@ public class sceneManaging : MonoBehaviour {
     public GameObject pauseMenu;
 
     void Update() {
-<<<<<<< HEAD
         scoreText.text = gameManaging.gameInstance.savedScore.ToString();
         //if (SceneManager.GetActiveScene().name == "Test_Scene1"){
 
@@ -20,26 +19,29 @@ public class sceneManaging : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main Menu"){
-=======
-        
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main Menu") {
->>>>>>> 88cea6594420f6037c41c786ad970de879ff6427
             pauseMenu.SetActive(true);
             Time.timeScale = 0.0f;
             Debug.Log("Time is: " + Time.timeScale);
-            StopCoroutine(scoreTimer());
+            //StopCoroutine(scoreTimer());
         }
-        if (pauseMenu.activeSelf == false && SceneManager.GetActiveScene().name != "Main Menu") {
-            StartCoroutine(scoreTimer());
-        }
+        //if (pauseMenu.activeSelf == false && SceneManager.GetActiveScene().name != "Main Menu") {
+        //StartCoroutine(scoreTimer());
+        //}
 
     }
 
+    public void startScoreRoutine(){
+        pauseMenu.SetActive(false);
+        StartCoroutine(scoreTimer());
+    }
+
     private IEnumerator scoreTimer() {
-        while (SceneManager.GetActiveScene().name != "Main Menu") {
+        while (pauseMenu.activeSelf == false && SceneManager.GetActiveScene().name != "Main Menu")
+        {
+            yield return new WaitForSeconds(1.0f);
             gameManaging.gameInstance.savedScore += 1;
-            yield return new WaitForSecondsRealtime(100.0f);
         }
+
     }
 
     public void setTime(){
@@ -47,13 +49,11 @@ public class sceneManaging : MonoBehaviour {
         Debug.Log("Time is: " + Time.timeScale);
     }
 
-<<<<<<< HEAD
     private void Start() {
-        
-=======
-    private void Start() {
-        scoreText.text = gameManaging.gameInstance.savedScore.ToString();
->>>>>>> 88cea6594420f6037c41c786ad970de879ff6427
+        if (SceneManager.GetActiveScene().name != "Main Menu") {
+            StartCoroutine(scoreTimer());
+        }
+
     }
 
 
@@ -77,3 +77,4 @@ public class sceneManaging : MonoBehaviour {
         Application.Quit();
     }
 }
+
