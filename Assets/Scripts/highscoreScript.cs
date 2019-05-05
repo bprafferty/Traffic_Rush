@@ -8,6 +8,12 @@ public class highscoreScript : MonoBehaviour
     public Text highscoreText;
     private void Start()
     {
-        highscoreText.text = "Highscore: " + gameManaging.gameInstance.savedScore.ToString();
+        highscoreText = GetComponent<Text>();
+        if (gameManaging.gameInstance.savedScore > gameManaging.gameInstance.highscore)
+        {
+            gameManaging.gameInstance.highscore = gameManaging.gameInstance.savedScore;
+            PlayerPrefs.SetFloat("highscore", gameManaging.gameInstance.savedScore);
+        }
+        highscoreText.text = "Highscore: " + gameManaging.gameInstance.highscore.ToString();
     }
 }

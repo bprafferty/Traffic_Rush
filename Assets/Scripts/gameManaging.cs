@@ -9,6 +9,7 @@ public class gameManaging : MonoBehaviour {
     }
 
     public int savedScore;
+    public int highscore;
 
     private void Awake() {
         if (gameInstance == null) {
@@ -19,5 +20,10 @@ public class gameManaging : MonoBehaviour {
         else {
             Destroy(gameObject);
         }
+    }
+    void Start()
+    {
+        highscore = PlayerPrefs.GetInt("highscore", highscore);
+        Debug.Log("Highscore is " + highscore);
     }
 }
