@@ -13,14 +13,21 @@ public class carMovement:MonoBehaviour
     public WheelCollider rearDriverW, rearPassengerW;
     public Transform frontDriverT, frontPassengerT;
     public Transform rearDriverT, rearPassengerT;
-    public float maxSteerAngle = 30;
-    public float motorForce = 50;
+    private float maxSteerAngle = 30;
+    private float motorForce = 2000;
+    private float constantMotorFoce = 200;
+    private int moving = 0;
+    private float Brakes = 30000;
+
     //new
     public void GetInput()
     {
         m_horizontalInput = Input.GetAxis("Horizontal");
         m_verticalInput = Input.GetAxis("Vertical");
-    }
+
+       
+    }   
+    
 
     private void Steer()
     {
@@ -31,8 +38,23 @@ public class carMovement:MonoBehaviour
 
     private void Accelerate()
     {
-        frontDriverW.motorTorque = m_verticalInput * motorForce;
-        frontPassengerW.motorTorque = m_verticalInput * motorForce;
+        //if(m_verticalInput > 0.01 || m_verticalInput < -0.01)
+        if (m_verticalInput > 0.01)
+        {
+            frontDriverW.motorTorque = m_verticalInput * motorForce;
+            frontPassengerW.motorTorque = m_verticalInput * motorForce;
+
+        }
+        else if (m_verticalInput < -0.01)
+        {
+            frontDriverW.brakeTorque = Brakes;
+            frontPassengerW.brakeTorque = Brakes;
+        }
+        else
+        {
+            frontDriverW.motorTorque = constantMotorFoce;
+            frontPassengerW.motorTorque = constantMotorFoce;
+        }
     }
 
     private void UpdateWheelPoses()
@@ -53,6 +75,9 @@ public class carMovement:MonoBehaviour
         _transform.position = _pos;
         _transform.rotation = _quat;
     }
+
+
+
 
     private void FixedUpdate()
     {
