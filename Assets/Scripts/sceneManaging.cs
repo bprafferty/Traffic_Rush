@@ -12,6 +12,7 @@ public class sceneManaging : MonoBehaviour {
     public GameObject pauseMenu;
 
     void Update() {
+<<<<<<< HEAD
         scoreText.text = gameManaging.gameInstance.savedScore.ToString();
         //if (SceneManager.GetActiveScene().name == "Test_Scene1"){
 
@@ -19,6 +20,10 @@ public class sceneManaging : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main Menu"){
+=======
+        
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main Menu") {
+>>>>>>> 88cea6594420f6037c41c786ad970de879ff6427
             pauseMenu.SetActive(true);
             Time.timeScale = 0.0f;
             Debug.Log("Time is: " + Time.timeScale);
@@ -42,8 +47,13 @@ public class sceneManaging : MonoBehaviour {
         Debug.Log("Time is: " + Time.timeScale);
     }
 
+<<<<<<< HEAD
     private void Start() {
         
+=======
+    private void Start() {
+        scoreText.text = gameManaging.gameInstance.savedScore.ToString();
+>>>>>>> 88cea6594420f6037c41c786ad970de879ff6427
     }
 
 

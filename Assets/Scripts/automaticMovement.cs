@@ -11,6 +11,8 @@ public class automaticMovement : MonoBehaviour
     public Transform rearDriverT, rearPassengerT;
     public float motorForce = 10;
 
+    
+
     private void UpdateWheelPoses()
     {
         UpdateWheelPose(frontDriverW, frontDriverT);
@@ -36,8 +38,28 @@ public class automaticMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Accelerate();
+        if (transform.position.z < 5)
+        {
+            Debug.Log("teleport");
+            transform.position = new Vector3(transform.position.x, transform.position.y, 195.0f);
+        }
+
         //UpdateWheelPoses();
+        Accelerate();
+
+        if (transform.position.y < -.5)
+        {
+            Destroy(gameObject);
+            Debug.Log("destroyed");
+        }
+ 
+
+    }
+
+
+    private void Update()
+    {
+
     }
 
 
