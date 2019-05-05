@@ -45,7 +45,7 @@ public class carMovement:MonoBehaviour
         //if(m_verticalInput > 0.01 || m_verticalInput < -0.01)
         if (m_verticalInput > 0.01)
         {
-            speedSong.time = 1f;
+            speedSong.time = 2.5f;
             speedSong.Play();
             frontDriverW.brakeTorque = 0;
             frontPassengerW.brakeTorque = 0;
@@ -55,6 +55,8 @@ public class carMovement:MonoBehaviour
         }
         else if (m_verticalInput < -0.01)
         {
+
+
             breakSong.time = 1.0f;
             breakSong.Play();
             frontDriverW.brakeTorque = Brakes;
@@ -92,6 +94,24 @@ public class carMovement:MonoBehaviour
     {
         crashSong.time = 1f;
         crashSong.Play();
+    }
+
+
+    private void Update()
+    {
+        if (crashSong.time > 2f)
+        {
+            crashSong.Stop();
+            
+        }
+        if(breakSong.time > 2f)
+        {
+            breakSong.Stop();
+        }
+        if (!(m_verticalInput > 0.01)) 
+        {
+            speedSong.Stop();
+        }
     }
 
 
