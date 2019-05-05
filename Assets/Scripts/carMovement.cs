@@ -13,11 +13,11 @@ public class carMovement:MonoBehaviour
     public WheelCollider rearDriverW, rearPassengerW;
     public Transform frontDriverT, frontPassengerT;
     public Transform rearDriverT, rearPassengerT;
-    public float maxSteerAngle = 30;
-    public float motorForce = 2000;
-    public float constantMotorFoce = 200;
-    public int moving = 0;
-    public float Brakes = 30000;
+    private float maxSteerAngle = 30;
+    private float motorForce = 2000;
+    private float constantMotorFoce = 200;
+    private int moving = 0;
+    private float Brakes = 30000;
 
     //new
     public void GetInput()
