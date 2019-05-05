@@ -270,6 +270,75 @@ MonoBehaviour:
   roadShapeDistanceMax: 1
   perpDir: {x: -0.99893034, y: 0, z: 0.04623989}
   perpDirRotated: {x: -0.99893034, y: 0, z: 0.046240162}
+--- !u!1001 &659051594
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5980428370186648757, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 205.30707
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.083
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.181288
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e940ad06a883740a499650f931a3c120, type: 3}
 --- !u!43 &694361895
 Mesh:
   m_ObjectHideFlags: 0
@@ -872,6 +941,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &1416380177 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5980428370186543253, guid: e940ad06a883740a499650f931a3c120,
+    type: 3}
+  m_PrefabInstance: {fileID: 659051594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1467962827
 Mesh:
   m_ObjectHideFlags: 0
@@ -1127,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b07447b2b2595740aa6dfb1569e10b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 0}
+  objectToFollow: {fileID: 1416380177}
   offset: {x: 0, y: 2, z: -4}
   followSpeed: 10
   lookSpeed: 10
@@ -1474,11 +1549,16 @@ PrefabInstance:
         type: 3}
       propertyPath: activeTerrain
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 696173385}
     - target: {fileID: 1830327865596684841, guid: 6eea91b50a967554bb37a93c3dc1f875,
         type: 3}
       propertyPath: activeTerrainY
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830327865596684841, guid: 6eea91b50a967554bb37a93c3dc1f875,
+        type: 3}
+      propertyPath: dirtyOnSceneBool
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1830327866450848450, guid: 6eea91b50a967554bb37a93c3dc1f875,
         type: 3}
