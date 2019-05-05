@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0aa9d5c71d9dd4abc92556c635b089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreText: {fileID: 0}
+  highscoreText: {fileID: 190398092}
 --- !u!1001 &205081502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1244,9 +1244,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "How to move:\n\t- Up arrow key to\n\t   accelerate car\n\t- Left and right
-    arrow keys\n\t   to turn car\n\nNote:\n\t- Crashing into other cars\n\t   will
-    cause damage.\n\t- You have 100 durability\n\t   to begin."
+  m_Text: (Insert credits here)
 --- !u!222 &1716883366
 CanvasRenderer:
   m_ObjectHideFlags: 0
