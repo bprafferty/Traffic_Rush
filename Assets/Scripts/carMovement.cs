@@ -5,6 +5,10 @@ using UnityEngine;
 public class carMovement:MonoBehaviour
 {
 
+    public AudioSource speedSong;
+    public AudioSource breakSong;
+   public AudioSource crashSong;
+
     private float m_horizontalInput;
     private float m_verticalInput;
     private float m_steeringAngle;
@@ -41,17 +45,25 @@ public class carMovement:MonoBehaviour
         //if(m_verticalInput > 0.01 || m_verticalInput < -0.01)
         if (m_verticalInput > 0.01)
         {
+            speedSong.time = 1f;
+            speedSong.Play();
+            frontDriverW.brakeTorque = 0;
+            frontPassengerW.brakeTorque = 0;
             frontDriverW.motorTorque = m_verticalInput * motorForce;
             frontPassengerW.motorTorque = m_verticalInput * motorForce;
 
         }
         else if (m_verticalInput < -0.01)
         {
+            breakSong.time = 1.0f;
+            breakSong.Play();
             frontDriverW.brakeTorque = Brakes;
             frontPassengerW.brakeTorque = Brakes;
         }
         else
         {
+            frontDriverW.brakeTorque = 0;
+            frontPassengerW.brakeTorque = 0;
             frontDriverW.motorTorque = constantMotorFoce;
             frontPassengerW.motorTorque = constantMotorFoce;
         }
@@ -76,11 +88,16 @@ public class carMovement:MonoBehaviour
         _transform.rotation = _quat;
     }
 
-
+    void OnCollisionEnter(Collision collision)
+    {
+        crashSong.time = 1f;
+        crashSong.Play();
+    }
 
 
     private void FixedUpdate()
     {
+        //mainSong.Play();
         GetInput();
         Steer();
         Accelerate();
