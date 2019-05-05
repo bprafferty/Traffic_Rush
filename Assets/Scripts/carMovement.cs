@@ -17,6 +17,8 @@ public class carMovement:MonoBehaviour
     public float motorForce = 2000;
     public float constantMotorFoce = 200;
     public int moving = 0;
+    public float Brakes = 30000;
+
     //new
     public void GetInput()
     {
@@ -36,11 +38,17 @@ public class carMovement:MonoBehaviour
 
     private void Accelerate()
     {
-        if(m_verticalInput > 0.01 || m_verticalInput < -0.01)
+        //if(m_verticalInput > 0.01 || m_verticalInput < -0.01)
+        if (m_verticalInput > 0.01)
         {
             frontDriverW.motorTorque = m_verticalInput * motorForce;
             frontPassengerW.motorTorque = m_verticalInput * motorForce;
 
+        }
+        else if (m_verticalInput < -0.01)
+        {
+            frontDriverW.brakeTorque = Brakes;
+            frontPassengerW.brakeTorque = Brakes;
         }
         else
         {
@@ -67,6 +75,7 @@ public class carMovement:MonoBehaviour
         _transform.position = _pos;
         _transform.rotation = _quat;
     }
+
 
 
 
