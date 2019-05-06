@@ -12,7 +12,7 @@ public class highscoreScript : MonoBehaviour
         if (gameManaging.gameInstance.savedScore > gameManaging.gameInstance.highscore)
         {
             gameManaging.gameInstance.highscore = gameManaging.gameInstance.savedScore;
-            PlayerPrefs.SetFloat("highscore", gameManaging.gameInstance.savedScore);
+            PlayerPrefs.SetInt("highscore", gameManaging.gameInstance.savedScore);
         }
         highscoreText.text = "Highscore: " + gameManaging.gameInstance.highscore.ToString();
     }
