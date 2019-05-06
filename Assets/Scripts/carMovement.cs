@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class carMovement:MonoBehaviour
 {
-
+    public Animator animatorLift;
     public AudioSource speedSong;
     public AudioSource breakSong;
    public AudioSource crashSong;
@@ -121,11 +121,26 @@ public class carMovement:MonoBehaviour
             Debug.Log("End Zone");
             sceneManaging foo = new sceneManaging();
             foo.goToNextScene();
+        }
 
-            
+        if (transform.position.z > 20)
+        {
+            Invoke("AnimStart", 0.0f);
         }
     }
 
+
+    void AnimStart()
+    {
+        animatorLift.SetBool("animationBoolean", true);
+        
+    }
+
+    private void Start()
+    {
+        animatorLift.enabled = true;
+        animatorLift.SetBool("animationBoolean", false);
+    }
 
     private void FixedUpdate()
     {
