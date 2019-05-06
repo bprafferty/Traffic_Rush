@@ -15,12 +15,15 @@ public class sceneManaging : MonoBehaviour {
     void Update() {
         scoreText.text = gameManaging.gameInstance.savedScore.ToString();
 
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main Menu"){
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main Menu" && SceneManager.GetActiveScene().name != "Gameover Scene"){
             pauseMenu.SetActive(true);
             Time.timeScale = 0.0f;
             Debug.Log("Time is: " + Time.timeScale);
         }
 
+    }
+    public void startNewGame(){
+        gameManaging.gameInstance.savedScore = 0;
     }
 
     public void startScoreRoutine(){
@@ -42,7 +45,7 @@ public class sceneManaging : MonoBehaviour {
     }
 
     private void Start() {
-        if (SceneManager.GetActiveScene().name != "Main Menu") {
+        if (SceneManager.GetActiveScene().name != "Main Menu" && SceneManager.GetActiveScene().name != "Gameover Scene") {
             StartCoroutine(scoreTimer());
         }
 
