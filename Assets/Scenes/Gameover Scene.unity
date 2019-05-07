@@ -381,7 +381,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 220, y: 150}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &190398092
 MonoBehaviour:
@@ -1641,16 +1641,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sceneManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8395028645990533853, guid: fc1f0c780cbce41d2af9893dec88ffee,
-        type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 1816389588}
-    - target: {fileID: 8395028645990533853, guid: fc1f0c780cbce41d2af9893dec88ffee,
-        type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1874734427}
     - target: {fileID: 8395028645990533854, guid: fc1f0c780cbce41d2af9893dec88ffee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1706,6 +1696,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8395028645990533853, guid: fc1f0c780cbce41d2af9893dec88ffee,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1816389588}
+    - target: {fileID: 8395028645990533853, guid: fc1f0c780cbce41d2af9893dec88ffee,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1874734427}
+    - target: {fileID: 8395028645990533853, guid: fc1f0c780cbce41d2af9893dec88ffee,
+        type: 3}
+      propertyPath: highsScoreText
+      value: 
+      objectReference: {fileID: 190398092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc1f0c780cbce41d2af9893dec88ffee, type: 3}
 --- !u!114 &1874734426 stripped

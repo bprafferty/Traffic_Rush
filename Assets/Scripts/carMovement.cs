@@ -21,8 +21,8 @@ public class carMovement:MonoBehaviour
     public Transform frontDriverT, frontPassengerT;
     public Transform rearDriverT, rearPassengerT;
     private float maxSteerAngle = 30;
-    private float motorForce = 2000;
-    private float constantMotorFoce = 200;
+    private float motorForce = 1;
+    public float constantMotorFoce = 1000;
     private int moving = 0;
     private float Brakes = 30000;
 

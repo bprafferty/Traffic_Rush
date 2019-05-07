@@ -55,14 +55,35 @@ public class automaticMovement : MonoBehaviour
 
     }
 
-    private void Start()
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "MiniRamps")
+        {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            StartCoroutine(startCoRoutine());
+            
+        }
+
+    }
+
+    IEnumerator startCoRoutine()
+    {
+        while (gameObject.GetComponent<BoxCollider>().enabled == false)
+        {
+            yield return new WaitForSeconds(1.5f);
+            gameObject.GetComponent<BoxCollider>().enabled = true;
+        }
+
+    }
+
+        private void Start()
     {
 
     }
 
     private void Update()
     {
-
+        //gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 
 

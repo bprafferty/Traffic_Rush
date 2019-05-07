@@ -7,16 +7,25 @@ using UnityEngine.UI;
 public class sceneManaging : MonoBehaviour {
     public Text scoreText;
     public int currentScore = 0;
-    public int scoreStart; 
     public static sceneManaging levelFinished;
-
+    public Text levelText;
+    public Text highsScoreText;
 
     public GameObject pauseMenu;
 
     void Update() {
+
+        scoreText.text = "Time: " + gameManaging.gameInstance.savedScore.ToString();
+        levelText.text = "Level " + SceneManager.GetActiveScene().buildIndex.ToString();
+        if ((gameManaging.gameInstance.savedScore < gameManaging.gameInstance.highscore) || (gameManaging.gameInstance.highscore == 0))
+        {
+            gameManaging.gameInstance.highscore = gameManaging.gameInstance.savedScore;
+            PlayerPrefs.SetInt("highscore", gameManaging.gameInstance.savedScore);
+        }
+        highsScoreText.text = "Fastest time: " + gameManaging.gameInstance.highscore.ToString() + " seconds";
         Debug.Log(gameManaging.gameInstance.savedScore);
-        scoreText.text = gameManaging.gameInstance.savedScore.ToString();
-    
+
+   
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main Menu" && SceneManager.GetActiveScene().name != "Gameover Scene"){
             pauseMenu.SetActive(true);
             Time.timeScale = 0.0f;
@@ -26,6 +35,12 @@ public class sceneManaging : MonoBehaviour {
     }
     public void startNewGame(){
         gameManaging.gameInstance.savedScore = 0;
+    }
+
+    void updateText()
+    {
+
+
     }
 
     public void startScoreRoutine(){
@@ -53,7 +68,6 @@ public class sceneManaging : MonoBehaviour {
             Debug.Log("start score");
         }
 
-        scoreStart = gameManaging.gameInstance.savedScore;
 
     }
 
