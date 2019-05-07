@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class sceneManaging : MonoBehaviour {
     public Text scoreText;
     public int currentScore = 0;
+    public int scoreStart; 
     public static sceneManaging levelFinished;
 
 
@@ -50,8 +51,9 @@ public class sceneManaging : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "Main Menu" && SceneManager.GetActiveScene().name != "Gameover Scene") {
             StartCoroutine(scoreTimer());
             Debug.Log("start score");
-
         }
+
+        scoreStart = gameManaging.gameInstance.savedScore;
 
     }
 

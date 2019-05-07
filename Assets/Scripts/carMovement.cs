@@ -13,6 +13,8 @@ public class carMovement:MonoBehaviour
     private float m_horizontalInput;
     private float m_verticalInput;
     private float m_steeringAngle;
+    public int scoreStart;
+
 
     public WheelCollider frontDriverW, frontPassengerW;
     public WheelCollider rearDriverW, rearPassengerW;
@@ -95,11 +97,15 @@ public class carMovement:MonoBehaviour
     {
         crashSong.time = 1f;
         crashSong.Play();
+        Debug.Log("crash");
+        if ((collision.gameObject.name != "MiniRamps") && (collision.gameObject.name != "road_0001") && (collision.gameObject.name != "road_0001 (1)"))
+        {
+            gameManaging.gameInstance.savedScore = scoreStart;
+            Application.LoadLevel(Application.loadedLevel);
+        }
 
 
     }
-
-
     private void Update()
     {
         if (crashSong.time > 2f)
@@ -140,6 +146,8 @@ public class carMovement:MonoBehaviour
     {
         animatorLift.enabled = true;
         animatorLift.SetBool("animationBoolean", false);
+
+        scoreStart = gameManaging.gameInstance.savedScore;
     }
 
     private void FixedUpdate()
