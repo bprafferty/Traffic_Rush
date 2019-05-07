@@ -46,9 +46,10 @@ public class automaticMovement : MonoBehaviour
         //UpdateWheelPoses();
         Accelerate();
 
-        if (transform.position.y < -.5)
+        if (transform.position.z > 195)
         {
-            Destroy(gameObject);
+            transform.position = new Vector3(transform.position.x, transform.position.y, 5.0f);
+
             Debug.Log("destroyed");
         }
  
