@@ -7,5 +7,4 @@ How to move:
 - Left and right arrow keys to turn car
 
 Note:
-- Crashing into other cars or obstacles will cause damage.
-- You have 100 health to begin.
+- Crashing into other cars or obstacles will cause you to lose the game.
