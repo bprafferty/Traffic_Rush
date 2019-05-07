@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1Scene.unity
     guid: 32a8481372577794c852444f18c686f9
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/709c65ea8605a0749a4a274f7b612f05
+    guid: 709c65ea8605a0749a4a274f7b612f05
   - enabled: 1
     path: Assets/Scenes/Level2Scene.unity
-    guid: 709c65ea8605a0749a4a274f7b612f05
+    guid: d4d540c9de4df7440b366a00802823f9
   - enabled: 1
     path: Assets/Scenes/Gameover Scene.unity
     guid: 6a3728a6ec3eab04496a06864884a0bd

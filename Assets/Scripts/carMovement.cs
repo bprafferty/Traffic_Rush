@@ -64,9 +64,9 @@ public class carMovement:MonoBehaviour
             breakSong.Play();
             frontDriverW.brakeTorque = Brakes;
             frontPassengerW.brakeTorque = Brakes;
-            frontDriverW.motorTorque = m_verticalInput * motorForce;
-            frontPassengerW.motorTorque = m_verticalInput * motorForce;
-
+            frontDriverW.motorTorque = -(m_verticalInput) * motorForce;
+            frontPassengerW.motorTorque = -(m_verticalInput) * motorForce;
+            
         }
         else
         {
