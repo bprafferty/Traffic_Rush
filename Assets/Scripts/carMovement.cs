@@ -24,7 +24,7 @@ public class carMovement:MonoBehaviour
     private float motorForce = 1;
     public float constantMotorFoce = 1000;
     private int moving = 0;
-    private float Brakes = 30000;
+    private float Brakes = 500;
 
     //new
     public void GetInput()
@@ -64,6 +64,9 @@ public class carMovement:MonoBehaviour
             breakSong.Play();
             frontDriverW.brakeTorque = Brakes;
             frontPassengerW.brakeTorque = Brakes;
+            frontDriverW.motorTorque = m_verticalInput * motorForce;
+            frontPassengerW.motorTorque = m_verticalInput * motorForce;
+
         }
         else
         {
